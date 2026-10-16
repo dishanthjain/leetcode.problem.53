@@ -1,0 +1,20 @@
+Code:
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int currentSum = nums[0];
+        int maxSum = nums[0];
+
+        for (int i = 1; i < nums.size(); i++) {
+            currentSum = max(nums[i], currentSum + nums[i]);
+            maxSum = max(maxSum, currentSum);
+        }
+
+        return maxSum;
+    }
+};
+
+Explanation:
+
+Kadane’s algorithm decides whether to extend the current subarray or start a new one at each element. It keeps track of the largest sum found so far.
